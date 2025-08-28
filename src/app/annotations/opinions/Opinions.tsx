@@ -100,7 +100,7 @@ export function OpinionAnnotation({
             </div>;
     }
 
-    const handleTypeSelection = (type: "claim" | "premise" | "solution") => {
+    const handleTypeSelection = (type: any) => {
         // console.log("test")
         // console.log(editingSegmentId)
         if (editingSegmentId) {

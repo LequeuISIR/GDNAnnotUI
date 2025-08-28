@@ -14,7 +14,7 @@ export function PopUpComponent({
     popupPosition: { x: number; y: number },
     popupVisible: boolean,
     setPopupVisible: (set: boolean) => void,
-    handleTypeSelection: (type: "claim" | "premise" | "solution") => void
+    handleTypeSelection: (type: any) => void
     editingSegmentId: string | null,
     segments: {[key: string]: Segment};
     setSegments: (segments: {[key: string]: Segment}) => void;
@@ -81,7 +81,7 @@ export function PopUpComponent({
                     justifyContent: "space-between"
                 }}
             >
-                {["Affirmation", "Argument", "Solution"].map((type) => (
+                {(["Affirmation", "Argument", "Solution"] as const).map((type) => (
                     <div
                         key={type}
                         style={{ padding: "4px 8px", cursor: "pointer", backgroundColor: type_colors[type.toLowerCase()], display: "flex", justifyContent: "center"}}
