@@ -182,6 +182,7 @@ export default function ExamplesPage() {
   const {
     isLoading,
     summaries,
+    setSegments
   } = useAppContext();
 
   return (
@@ -193,7 +194,11 @@ export default function ExamplesPage() {
         {examples.map((ex) => (
           <button
             key={ex.id}
-            onClick={() => setOpinion(ex.data)}
+            onClick={() => {
+              setOpinion(ex.data)
+              setSegments({})
+            }}
+            
             style={{
               marginRight: "0.5rem",
               padding: "0.4rem 0.8rem",
