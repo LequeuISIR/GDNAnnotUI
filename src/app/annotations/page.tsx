@@ -6,13 +6,14 @@ import { useAppContext } from "../AppContext";
 import { useEffect } from "react";
 import { type_colors } from '../annotations/opinions/ColorSelector';
 import { ExplainCorrection, ExplainTask } from "../welcome/page";
+import Link from "next/link";
 
 
 
 export default function AnnotationsPage() {
   
   const {
-    handleNext, setHasStarted, hasStarted
+    handleNext, setHasStarted, hasStarted, token, setToken
   } = useAppContext();
 
   useEffect(() => {
@@ -27,6 +28,17 @@ export default function AnnotationsPage() {
     await handleNext();
   })();
   }, []);
+
+  if (!token) {
+    <div>
+      Veuillez retourner sur la page de toturiel et entrez votre token d'identification
+
+      <Link href="/welcome" style={{ color: "white", marginLeft: "1rem", textDecoration: "none", backgroundColor: "red"}}>
+                Retour au tutoriel
+        </Link>
+
+    </div>
+  }
 
   return (
     <div style={{display: "flex", flexDirection: "column", justifyContent: "space-between"}}>

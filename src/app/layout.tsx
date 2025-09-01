@@ -27,6 +27,9 @@ export default function RootLayout({
                <Link href="/welcome" style={{ color: "white", marginLeft: "1rem", textDecoration: "none" }}>
                 Tutoriel
               </Link>
+              <Link href="/examples" style={{ color: "white", marginLeft: "1rem", textDecoration: "none" }}>
+                Exemples
+              </Link>
               <Link href="/annotations" style={{ color: "white", marginLeft: "1rem", textDecoration: "none" }}>
                 Annotations
               </Link>

@@ -7,6 +7,7 @@ import { type_colors, colors } from '../annotations/opinions/ColorSelector';
 import { useAppContext } from "../AppContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 const example_opinion: Opinion = {
   opinionId: "introductionExample",
@@ -204,6 +205,7 @@ export default function Welcome() {
             Vous pouvez aussi recommencer des annotations que vous avez déjà faites.</li>
         </ul>
         <br />
+        <p>Vous trouverez trois autres exemples sur la <Link href="/examples">page d'exemples</Link>, qu'il et fortement conseillé de faire avant de commencer l'annotation.</p>
         <p>Entrez ci-dessous votre token d'identification pour commencer l'annotation ! Votre token est unique et personnel.</p>
       </div>
 
