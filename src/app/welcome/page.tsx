@@ -19,6 +19,52 @@ const example_opinion: Opinion = {
   authorName: "ORGANISATION_DE_LETAT_ET_DES_SERVICES_PUBLICS",
 }
 
+
+export function ExplainTask() {
+  return (
+    <div style={{marginBottom: "2rem"}}>
+           
+            <p>Chaque opinion contient une ou plusieurs <strong>unités argumentatives</strong> (chaque idée exprimée correspond à une unité argumentative). Dans chaque unité, vous pouvez trouver trois types de segments:</p>
+            <ul>
+                <li>🗣️ <span style={{color: type_colors["claim"]}}> <strong>Affirmation(s)</strong> </span> — l’auteur exprime son opinion qui n'est ni un argument ni une solution (“je pense que…”).</li>
+                <li>💡 <span style={{color: type_colors["solution"]}}> <strong>Solution(s)</strong> </span> — une proposition concrète pour résoudre un problème.</li>
+                <li>📌 <span style={{color: type_colors["premise"]}}> <strong>Argument(s)</strong> </span> — une justification ou un exemple qui soutient une affirmation ou une solution.</li>
+            </ul>
+            <p>
+            Toutes les unités argumentatives comprennent au moins l'un des trois rôles, mais peuvent ne pas contenir les trois. Plusieurs segments d'une même unité argumentative
+            peuvent aussi avoir le même rôle (par exemples, plusieurs arguments).
+            </p>
+            <br />
+            <p> Votre tâche consiste à <strong>identifier et annoter toutes les unités argumentatives présentes dans chaque opinions</strong>, et d'<strong>annoter leurs sous-segments de texte selon les trois types</strong> ci-dessus. </p> 
+            <p>Ensuite, chaque unité argumentative sera réécrite par un système d'intelligence artificielle générative. <strong>Vous devez vérifier et modifier ces textes générés par le système d'IA</strong> pour qu'ils représentent
+            parfaitement l'idée exprimée par le citoyen.</p> 
+      </div>
+  )
+}
+
+
+export function ExplainCorrection() {
+  return (
+    <div>
+      <p>
+      Après avoir segmenté le texte, cliquez sur <strong>"envoyer"</strong>: un système d'IA propose alors un argument clarifié pour chaque unité argumentative.
+      Modifiez-les si nécessaire pour qu’ils soient <strong>clairs et auto-suffisants</strong>, 
+          <strong> fidèles au texte</strong> (pas d’ajouts inventés) et <strong>Cohérents avec l’opinion complète et le thème du texte</strong>.
+      <br />
+      Concrètement, vous devez vérifier que l'opinion générée automatiquement représente parfaitement l'unité argumentative correspondante, 
+      en particulier <strong>sans ajouter de contenu ou de "justifications"</strong> qui ne sont pas exprimés dans l'opinion initiale. Cet argument généré doit être
+      <strong> clair et compréhensible sans connaître l'opinion initiale</strong>. Il doit aussi corriger les fautes d'orthographes, de ponctuations et de syntaxes 
+      présentes dans le texte.<br />
+      En particulier, si vous considérez que l'unité argumentative initiale est déjà parfaitement exprimée, elle doit être gardée telle qu'elle est.
+    </p>
+    <br />
+    <p> 
+      Une fois ces textes validés, cliquez sur <strong>“Accepter les résumés”</strong> pour valider et passer au texte suivant.
+    </p>
+  </div>
+  )
+}
+
 export default function Welcome() {
   const router = useRouter();
   const { hasStarted } = useAppContext();
@@ -29,11 +75,19 @@ export default function Welcome() {
     }
   }, [hasStarted, router]);
 
+  
+
   const {
     token, setToken, onStart, tokenError,
     summaries, setSummaries,
     isLoading, setIsLoading,
+    segments, setSegments
   } = useAppContext();
+
+  useEffect(() => {
+    setSegments({})
+    setSummaries([])
+  }, []);
 
 //   if (!token) {
 //     try {
@@ -57,28 +111,16 @@ export default function Welcome() {
         <div style={{marginBottom: "2rem"}}>
             <h2>👋 Bienvenue</h2>
             <p>
-            Merci de participer à l’annotation des opinions exprimées dans le cadre du <strong>Grand Débat National</strong>.
-            Votre rôle est d’aider à rendre ces opinions plus claires et structurées.
+           Merci de participer à l’annotation des opinions exprimées dans le cadre du <strong>Grand Débat National</strong>. <br />
+            Ce débat, organisé en 2019 à l’échelle nationale, a permis à des centaines de milliers de citoyens de partager en ligne leurs idées, leurs préoccupations et leurs propositions sur des sujets variés (fiscalité, services publics, environnement, démocratie…). 
+            Vous trouverez plus d'informations sur https://granddebat.fr/. <br />
+            Votre rôle est d’aider à rendre ces contributions plus claires afin de mieux comprendre la diversité des opinions citoyennes en aidant les chercheurs à analyser le contenu du débat.
             </p>
         </div>
 
         {/* Section 2 – Tâche */}
-        <div style={{marginBottom: "2rem"}}>
-            <h2>📝 Votre tâche</h2>
-            <p>Chaque opinion contient une ou plusieurs <strong>unités argumentatives</strong> (chaque idée exprimée correspond à une unité argumentative). Dans chaque unité, vous pouvez trouver trois types de segments:</p>
-            <ul>
-                <li>🗣️ <span style={{color: type_colors["claim"]}}> <strong>Affirmation(s)</strong> </span> — l’auteur exprime son opinion qui n'est ni un argument ni une solution (“je pense que…”).</li>
-                <li>💡 <span style={{color: type_colors["solution"]}}> <strong>Solution(s)</strong> </span> — une proposition concrète pour résoudre un problème.</li>
-                <li>📌 <span style={{color: type_colors["premise"]}}> <strong>Argument(s)</strong> </span> — une justification ou un exemple qui soutient une affirmation ou une solution.</li>
-            </ul>
-            <p>
-            Toutes les unités argumentatives n’ont pas forcément les trois rôles. Il peut aussi y avoir plusieurs segments d’un même type (souvent plusieurs arguments).
-            </p>
-            <br />
-            <p> Votre tâche est de <strong>trouver les différentes unités argumentatives des opinions</strong>, et d'<strong>annoter leurs sous-segments de texte selon les trois types</strong> ci-dessus. </p> 
-            <p>Ensuite, chaque unité argumentative sera réécrite par une intelligence artificielle générative. <strong>Vous devez vérifier et modifier ces textes générés par IA</strong> pour qu'ils représentent
-            parfaitement l'idée exprimée par le citoyen.</p> 
-        </div>
+        <h2>📝 Votre tâche</h2>
+        <ExplainTask />
 
         {/* Section 3 – Comment annoter */}
         <div style={{marginBottom: "2rem"}}>    
@@ -88,7 +130,7 @@ export default function Welcome() {
             <li>Chaque <strong>Unité argumentative</strong> est représentée par une couleur. Dans l'exemple ci-dessous, le <span style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[0]}` }}>cadre orange</span>  représente 
             une unité argumentative. en appuyant sur le bouton <strong>+</strong>, vous pouvez ajouter <span style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[1]}` }}>un nouveau cadre</span>, c'est à dire une nouvelle idée abordée par le citoyen. </li>
             <li>
-                Pour annoter, trouvez d'abord les différentes idées abordées dans le texte. Chaque idée correspondra à un cadre de couleur différente. Ensuite, pour chaque idée, trouvez le type des différentes sous-parties de son texte. 
+                Pour annoter, trouvez d'abord les différentes idées abordées dans le texte. Chaque idée correspondra à un cadre de couleur différente. Ensuite, pour chaque idée, trouvez le type des différentes sous-parties du texte correspondant. 
                 Pour chaque sous-partie, cliquez sur le type correspondant dans le cadre (<span style={{color: type_colors["claim"]}}><strong>Affirm.</strong> </span> , <span style={{color: type_colors["premise"]}}> <strong>Argum.</strong></span>, <span style={{color: type_colors["solution"]}}> <strong>Solution</strong></span>)
                 et surlignez la partie correspondante. </li>
             <br />
@@ -153,19 +195,13 @@ export default function Welcome() {
         <br />
         {/* Section 6 – Après annotation */}
         <h2>🚀 Après la segmentation</h2>
-            <ol>
-            <li>Cliquez sur <strong>“Envoyer”</strong>. Une IA propose alors un argument clarifié pour chaque unité argumentative.</li>
-            <li>Modifiez-les si nécessaires pour qu’ils soient <strong>clairs et auto-suffisants</strong>, 
-                <strong> fidèles au texte</strong> (pas d’ajouts inventés) et <strong>Cohérents avec l’opinion complète et le thème du texte</strong>.
-            </li>
-            <li>Une fois ces textes validés, cliquez sur <strong>“Accepter les résumés”</strong> pour valider et passer au texte suivant.</li>
-            </ol>
+          <ExplainCorrection />
         <br />
         {/* Section 7 – Feuille de route */}
         <h2>🧭 Dernières informations</h2>
         <ul>
           <li>Si le texte est incompréhensible, haineux, ou trop long pour être annoté, utilisez le bouton <strong>“signaler”</strong>.</li>
-          <li>Vous trouverez votre nombre d'annotations faîtes dans la partie "Profil" en haut à droite de la page. 
+          <li>Vous trouverez le nombre d'annotations que vous avez déjà réalisées dans la partie "Profil" en haut à droite de la page. 
             Vous pouvez aussi recommencer des annotations que vous avez déjà faites.</li>
         </ul>
         <br />

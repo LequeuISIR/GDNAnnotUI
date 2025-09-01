@@ -17,7 +17,7 @@ export interface OpinionResults {
 export interface Segment {
     segmentId: string;
     text: string;
-    type: "claim"|"premise"|"solution"; 
+    type: "claim"|"premise"|"solution"|"unchosed"; 
     color: string;
     hex: string;
     start: number;
@@ -38,7 +38,7 @@ export interface Summary {
 export interface Color {
     color: string;
     hex: string;
-    type: "claim"|"premise"|"solution";
+    type: "claim"|"premise"|"solution"|"unchosed";
 }
 
 export interface UserInformation {

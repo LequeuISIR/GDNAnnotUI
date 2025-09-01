@@ -106,7 +106,11 @@ export function OpinionAnnotation({
         if (editingSegmentId) {
             const updated = { ...segments };
             let segment = {... updated[editingSegmentId]}
-            let opinionId = segment.segmentId.split("-")[0]
+            let info = segment.segmentId.split("-")
+            let opinionId = info[0]
+            // let color = info[1]
+            // let old_type_color = info[2]
+            // let counter = info[4]
             let newSegmentId = generateSegmentId(opinionId, segment.color, type_colors[type], segments)
             // console.log(segment.segmentId)
             // console.log(newSegmentId)
@@ -126,14 +130,14 @@ export function OpinionAnnotation({
 
         const { start, end, text } = pendingSegment;
 
-        let segmentId = generateSegmentId(opinion.opinionId, selectedColor.color, selectedColor.hex, segments)
+        let segmentId = generateSegmentId(opinion.opinionId, selectedColor.color, type_colors["unchosed"], segments)
         
         setSegments({
                 ...segments,
                 [segmentId]: {
                 segmentId: segmentId,
                 text: text,
-                type: selectedColor.type,
+                type: "unchosed",
                 color: selectedColor.color,
                 hex: selectedColor.hex,
                 start: start,
@@ -173,7 +177,8 @@ export function OpinionAnnotation({
     
         // ✅ Find all full word spans
         // regex to find full words, including accents
-        const wordRegex = /[\p{L}\p{M}\p{N}]+|[^\s\p{L}\p{M}\p{N}]/gu;
+        const wordRegex = /[\p{L}\p{M}\p{N}]+(?:\s?(?:\.{3}|[?!\.])+)?/gu;
+
 
 
         let match: RegExpExecArray | null;
@@ -205,19 +210,24 @@ export function OpinionAnnotation({
         let baseSegmentId = `${opinion.opinionId}-${selectedColor.color}-${selectedColor.hex}`;
         let segmentId = baseSegmentId;
         let counter = 1;
+        segmentId = `${baseSegmentId}-${counter}`;
 
         // Check for existing keys and append -1, -2, etc. until unique
         while (segments.hasOwnProperty(segmentId)) {
-        segmentId = `${baseSegmentId}-${counter}`;
-        counter++;
-}       
+            segmentId = `${baseSegmentId}-${counter}`;
+            counter++;
+        }       
+
+        if (!(availableColors.includes(selectedColor.color))) {
+            setAvailableColors([...availableColors, selectedColor.color])
+        }
 
         setPendingSegment({
                 segmentId: segmentId,
                 text: text,
-                type: selectedColor.type,
+                type: "unchosed",
                 color: selectedColor.color,
-                hex: selectedColor.hex,
+                hex: type_colors["unchosed"],
                 start: adjustedStart,
                 end: adjustedEnd
             }
@@ -230,9 +240,9 @@ export function OpinionAnnotation({
             [segmentId]: {
                 segmentId: segmentId,
                 text: text,
-                type: selectedColor.type,
+                type: "unchosed",
                 color: selectedColor.color,
-                hex: selectedColor.hex,
+                hex: type_colors["unchosed"],
                 start: adjustedStart,
                 end: adjustedEnd
             }
@@ -320,7 +330,7 @@ export function OpinionAnnotation({
     return <div className="opinion-half">
                 <div className="color-picker">
                     <ColorSelector 
-                        setColor={setSelectedColor} 
+                        // setColor={setSelectedColor} 
                         activeColors={activeColors}
                         onRemoveColor={handleRemoveColor}
                         availableColors={availableColors}
@@ -352,13 +362,6 @@ export function OpinionAnnotation({
                                     setSegments={setSegments} />
                 )}
 
-                {/* <button
-                        onClick={() => handleReport()}
-                        disabled={isLoading}
-                        className="button button-report"
-                    >
-                        signaler
-                </button> */}
                       {/* -------- Signaler avec menu -------- */}
             <div style={{ position: "relative", display: "inline-block" }}>
                 <button

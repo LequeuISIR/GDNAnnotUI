@@ -37,7 +37,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [opinion, setOpinion] = useState<Opinion | null>(null);
   const [segments, setSegments] = useState<{ [key: string]: Segment }>({});
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedColor, setSelectedColor] = useState<Color>(Object.values(colors)[0][0]);
+  const [selectedColor, setSelectedColor] = useState<Color>(Object.values(colors)[0][3]);
   const [availableColors, setAvailableColors] = useState<string[]>([Object.keys(colors)[0]]);
   const [token, setToken] = useState("");
 
@@ -47,7 +47,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setSegments({});
     setSummaries([]);
     setAvailableColors([Object.keys(colors)[0]]);
-    setSelectedColor(Object.values(colors)[0][0]);
+    setSelectedColor(Object.values(colors)[0][3]);
     setIsLoading(false);
   };
 
@@ -57,7 +57,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setSegments({});
     setSummaries([]);
     setAvailableColors([Object.keys(colors)[0]]);
-    setSelectedColor(Object.values(colors)[0][0]);
+    setSelectedColor(Object.values(colors)[0][3]);
     setIsLoading(false);
   }
 

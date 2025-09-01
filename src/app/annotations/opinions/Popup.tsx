@@ -28,17 +28,11 @@ export function PopUpComponent({
             Solution: "solution"
         }
         console.log("new type:", type)
-
         handleTypeSelection(translations[type])
+
     }
     const popupRef = useRef<HTMLDivElement | null>(null);
     
-    const handleClickOutside = (event: MouseEvent) => {
-        if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
-            setPopupVisible(false);
-        }
-    };
-
     const removeSegment = () => {
         console.log(editingSegmentId)
         if (editingSegmentId) {
@@ -48,6 +42,19 @@ export function PopUpComponent({
             setPopupVisible(false)
         }
     }
+
+    
+    const handleClickOutside = (event: MouseEvent) => {
+        if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+            if (editingSegmentId) {
+                if (segments[editingSegmentId].type === "unchosed") {
+                    removeSegment()
+                }
+            }
+            setPopupVisible(false);
+        }
+    };
+
 
     useEffect(() => {
         if (popupVisible) {

@@ -23,9 +23,6 @@
 # misc
 .DS_Store
 *.pem
-*.jsonl
-./server/annotators/*
-./server/logs
 *.lock
 
 # debug
@@ -36,11 +33,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 *.env
-.venv
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
