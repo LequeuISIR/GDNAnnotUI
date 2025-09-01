@@ -166,7 +166,7 @@ export default function Welcome() {
             Vous pouvez aussi recommencer des annotations que vous avez déjà faites.</li>
         </ul>
         <br />
-        <p>Vous trouverez trois autres exemples sur la <Link href="/examples">page d'exemples</Link>, qu'il et fortement conseillé de faire avant de commencer l'annotation.</p>
+        <p>Vous trouverez trois autres exemples sur la <u><Link href="/examples" style={{color:"lightblue"}}>page d'exemples</Link></u>, qu'il est fortement conseillé de faire avant de commencer l'annotation.</p>
         <p>Entrez ci-dessous votre token d'identification pour commencer l'annotation ! Votre token est unique et personnel.</p>
       </div>
 
