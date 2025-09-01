@@ -5,7 +5,7 @@ import { Summaries } from "./summaries/Summaries";
 import { useAppContext } from "../AppContext";
 import { useEffect } from "react";
 import { type_colors } from '../annotations/opinions/ColorSelector';
-import { ExplainCorrection, ExplainTask } from "../welcome/page";
+import { ExplainCorrection, ExplainTask } from "../welcome/components/explanations";
 import Link from "next/link";
 
 
