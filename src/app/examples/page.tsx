@@ -91,7 +91,7 @@ function ExplanationExampleTwo() {
     return (
         <div style={{paddingLeft: "1rem", paddingRight: "1rem"}}>
             Cette exemple est très simple, mais il montre l'importance de regarder le thème du texte. <br />
-            Il ne contient qu'une seule unitée argumentative, qui est une affirmation, mais il faut s'assurer que le système d'IA à compris que le citoyen parle d'écologie, et cela doit être clair dans l'argument généré.
+            Il ne contient qu'une seule unitée argumentative, qui est une affirmation, mais il faut s'assurer que le système d'IA à compris que le citoyen parle d'écologie. Cela doit être clair dans l'argument généré.
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[0]}`, marginTop: "2rem", padding:"10px"}}>
             <h3>Unité argumentative 1</h3> <br />
                 <p><i>"Il y a urgence ! Nous sommes responsables de ce que nous allons laissé aux générations futures."</i></p>
@@ -110,8 +110,8 @@ function ExplanationExampleThree() {
     return (
         <div style={{paddingLeft: "1rem", paddingRight: "1rem"}}>
             Cette exemple est typique de ce que l'on trouve dans les participations citoyennes: le citoyen liste des solutions sur des thèmes variés, sans affirmation ou argument.
-            chaque thèmes une une unité argumentative différente. <br />
-            Dans ce cas, les unités argumentatives sont claires et bien exprimée, si ce n'est pour les fautes d'orthographes, de syntaxes et de ponctuations. L'argument validé devra alors être les arguments déjà écrits, mais corrigés.
+            chaque thème une une unité argumentative différente. <br />
+            Dans ce cas, les unités argumentatives sont claires et bien exprimées, si ce n'est pour les fautes d'orthographes, de syntaxes et de ponctuations. L'argument validé devra alors être les arguments déjà écrits, mais corrigés.
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[0]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 1</h3> <br />
                 <p><i>"Faire baisser le prix des maisons de retraite"</i></p>

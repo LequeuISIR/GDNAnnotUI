@@ -168,7 +168,7 @@ export default function Welcome() {
         <br />
         <p>Vous trouverez trois autres exemples sur la <u><Link href="/examples" style={{color:"lightblue"}}>page d'exemples</Link></u>, qu'il est fortement conseillé de faire avant de commencer l'annotation.</p>
         <p>Entrez ci-dessous votre token d'identification pour commencer l'annotation ! Votre token est unique et personnel.</p>
-      </div>
+      </div>ssj <pre></pre>
 
       {/* Section 8 – Token input */}
       <div style={{ textAlign: "center" }}>
