@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { type_colors } from "./ColorSelector";
 import { Segment } from "../../types";
+import { useAppContext } from "../../AppContext";
 
 export function PopUpComponent({
     popupPosition,
     popupVisible,
     setPopupVisible,
     handleTypeSelection,
+    handleColorSelection,
     editingSegmentId,
     segments,
     setSegments
@@ -14,23 +16,34 @@ export function PopUpComponent({
     popupPosition: { x: number; y: number },
     popupVisible: boolean,
     setPopupVisible: (set: boolean) => void,
-    handleTypeSelection: (type: any) => void
+    handleTypeSelection: (type: any) => void,
+    handleColorSelection: (color: string) => void,
     editingSegmentId: string | null,
     segments: {[key: string]: Segment};
     setSegments: (segments: {[key: string]: Segment}) => void;
 }): React.ReactElement {
 
-    const handleClick = (type: "Affirmation" | "Argument" | "Solution") => {
+    const {availableColors} = useAppContext()
+
+
+    const handleTypeChangeClick = (type: "Affirmation" | "Argument" | "Solution") => {
     
         let translations = {
             Affirmation: "claim",
             Argument: "premise",
             Solution: "solution"
         }
+
         console.log("new type:", type)
         handleTypeSelection(translations[type])
 
     }
+
+    const handleColorChangeClick = (color: string) => {
+        handleColorSelection(color)
+    }
+
+
     const popupRef = useRef<HTMLDivElement | null>(null);
     
     const removeSegment = () => {
@@ -87,12 +100,31 @@ export function PopUpComponent({
                     rowGap: "8px",
                     justifyContent: "space-between"
                 }}
-            >
+            >   
+                <p>Unité argumentative</p>
+                <div style={{display: "flex", flexDirection: "row"}}>
+                {
+                    availableColors.map((color: string) => (
+                        <div
+                        key={color}
+                        style={{ marginRight: "3px", 
+                            width: (segments[editingSegmentId as string].color === color ? "22px" : "20px"), 
+                            height: (segments[editingSegmentId as string].color === color ? "22px" : "20px"), 
+                            cursor: "pointer", 
+                            backgroundColor: color,
+                            border: (segments[editingSegmentId as string].color === color ? "2px solid white" : "1px solid #ccc"),
+                            display: "flex", 
+                            justifyContent: "center"}}
+                        onClick={() => handleColorChangeClick(color)} />
+                    ))
+                }
+                </div>
+                <p>type de segment</p>
                 {(["Affirmation", "Argument", "Solution"] as const).map((type) => (
                     <div
                         key={type}
                         style={{ padding: "4px 8px", cursor: "pointer", backgroundColor: type_colors[type.toLowerCase()], display: "flex", justifyContent: "center"}}
-                        onClick={() => handleClick(type)}
+                        onClick={() => handleTypeChangeClick(type)}
                     >
                         {type}
                     </div>

@@ -131,11 +131,10 @@ export default function Welcome() {
             une unité argumentative. en appuyant sur le bouton <strong>+</strong>, vous pouvez ajouter <span style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[1]}` }}>un nouveau cadre</span>, c'est à dire une nouvelle idée abordée par le citoyen. </li>
             <li>
                 Pour annoter, trouvez d'abord les différentes idées abordées dans le texte. Chaque idée correspondra à un cadre de couleur différente. Ensuite, pour chaque idée, trouvez le type des différentes sous-parties du texte correspondant. 
-                Pour chaque sous-partie, cliquez sur le type correspondant dans le cadre (<span style={{color: type_colors["claim"]}}><strong>Affirm.</strong> </span> , <span style={{color: type_colors["premise"]}}> <strong>Argum.</strong></span>, <span style={{color: type_colors["solution"]}}> <strong>Solution</strong></span>)
-                et surlignez la partie correspondante. </li>
+                Pour chaque sous-partie, surlignez-la et cliquez sur le type correspondant dans le cadre qui apparait (<span style={{color: type_colors["claim"]}}><strong>Affirmation</strong> </span> , <span style={{color: type_colors["premise"]}}> <strong>Argument</strong></span>, <span style={{color: type_colors["solution"]}}> <strong>Solution</strong></span>). </li>
             <br />
             <ul>
-                <li>Vous pouvez modifier le type d'un segment ou le supprimer en cliquant dessus.</li>
+                <li>Vous pouvez modifier le type ou l'unité argumentative d'un segment, ou le supprimer, en cliquant dessus.</li>
                 <li>Vous pouvez Réinitialiser votre travail avec le bouton "réinitialiser".</li>
                 <li>Pas besoin d'annoter tout le texte: ignorez ce qui n'est pas pertinent.</li>
             </ul>

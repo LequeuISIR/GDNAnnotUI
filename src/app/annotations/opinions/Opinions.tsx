@@ -106,6 +106,7 @@ export function OpinionAnnotation({
         if (editingSegmentId) {
             const updated = { ...segments };
             let segment = {... updated[editingSegmentId]}
+            setSelectedColor(colors[segment.color][3])
             let info = segment.segmentId.split("-")
             let opinionId = info[0]
             // let color = info[1]
@@ -148,6 +149,57 @@ export function OpinionAnnotation({
             setPendingSegment(null);
         };
 
+    const handleColorSelection = (color: string) => {
+        if (editingSegmentId) {
+            const updated = { ...segments };
+            let segment = {... updated[editingSegmentId]}
+            setSelectedColor(colors[segment.color][3])
+
+            let info = segment.segmentId.split("-")
+            let opinionId = info[0]
+            let old_color = info[1]
+            let type_hex = info[2]
+            let newSegmentId = generateSegmentId(opinionId, color, type_hex, segments)
+            // console.log(segment.segmentId)
+            // console.log(newSegmentId)
+            console.log("old id", segment.segmentId)
+            console.log("new id", newSegmentId)
+
+
+            segment.color = color
+            segment.segmentId = newSegmentId
+            
+            delete updated[editingSegmentId]
+            updated[newSegmentId] = segment
+
+            setSegments(updated);
+            setEditingSegmentId(newSegmentId);
+            setSelectedColor(colors[color][3])
+            return;
+        }
+
+        if (!pendingSegment) return;
+
+        const { start, end, text } = pendingSegment;
+
+        let segmentId = generateSegmentId(opinion.opinionId, selectedColor.color, type_colors["unchosed"], segments)
+        
+        setSegments({
+                ...segments,
+                [segmentId]: {
+                segmentId: segmentId,
+                text: text,
+                type: "unchosed",
+                color: selectedColor.color,
+                hex: selectedColor.hex,
+                start: start,
+                end: end
+            }});
+
+            setPopupVisible(false);
+            setSelectedColor(colors[color][3])
+            setPendingSegment(null);
+        };
 
     const handleHighlight = () => {
         const selection = window.getSelection();
@@ -346,6 +398,7 @@ export function OpinionAnnotation({
                     segments={segments}
                     textRef={textRef}
                     selectedColor={selectedColor}
+                    setSelectedColor={setSelectedColor}
                     setPopupPosition={setPopupPosition}
                     setPopupVisible={setPopupVisible}
                     setEditingSegmentId={setEditingSegmentId}
@@ -357,6 +410,7 @@ export function OpinionAnnotation({
                                     popupVisible={popupVisible} 
                                     setPopupVisible={setPopupVisible} 
                                     handleTypeSelection={handleTypeSelection}
+                                    handleColorSelection={handleColorSelection}
                                     editingSegmentId={editingSegmentId}
                                     segments={segments}
                                     setSegments={setSegments} />
@@ -448,6 +502,7 @@ export function OpinionLayout({
     segments,
     textRef,
     selectedColor,
+    setSelectedColor,
     setPopupPosition,
     setPopupVisible,
     setEditingSegmentId,
@@ -459,6 +514,7 @@ export function OpinionLayout({
     segments: {[key: string]: Segment};
     textRef: React.RefObject<HTMLParagraphElement | null>;
     selectedColor: Color,
+    setSelectedColor: (col: Color) => void,
     setPopupPosition: (pos: { x: number; y: number } | null) => void,
     setPopupVisible: (arg: boolean) => void,
     setEditingSegmentId: (arg: string | null) => void,
@@ -503,6 +559,7 @@ export function OpinionLayout({
                         e.stopPropagation(); // prevent global deselect
                         const rect = (e.target as HTMLElement).getBoundingClientRect();
                         setEditingSegmentId(segmentId);
+                        setSelectedColor(colors[segments[segmentId].color][3])
                         
                         setPopupPosition({ x: rect.right + window.scrollX + 5, y: rect.top + window.scrollY - 5 });
                         setPopupVisible(true);
