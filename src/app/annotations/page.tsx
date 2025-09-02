@@ -30,6 +30,7 @@ export default function AnnotationsPage() {
   }, []);
 
   if (!token) {
+	return(
     <div>
       Veuillez retourner sur la page de toturiel et entrez votre token d'identification
 
@@ -38,6 +39,7 @@ export default function AnnotationsPage() {
         </Link>
 
     </div>
+)
   }
 
   return (
