@@ -159,7 +159,7 @@ function ExplanationExampleThree() {
                 - <strong>IA:</strong> "Autoriser l'aide à l'euthanasie active pour les personnes qui en font la demande, dans certains cas, 
                 permettrait de respecter la volonté individuelle et d'offrir une solution encadrée à la fin de vie." <br />
                 Le système d'IA ajoute de l'information non exprimée. <br />
-                - <strong>Solution:</strong> "Autoriser, dans certains cas particulier et si le patient le décide, l'aide à l'euthanasie active."<br />
+                - <strong>Solution:</strong> "Autoriser, dans certains cas particuliers et si le patient le décide, l'aide à l'euthanasie active."<br />
                 </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[2]}`, marginTop: "2rem", padding:"10px"}}>
@@ -184,7 +184,7 @@ function ExplanationExampleThree() {
                 </p> <br/>
                 <p><strong>Argument final:</strong> <br />
                 - <strong>IA:</strong> "Retirer la nationalité pour les binationaux récidivistes et les condamnés pour terrorisme." <br />
-                L'argument généré est valide. 
+	L'argument généré est valide.<br /> 
                 - <strong>Solution:</strong> "Retirer la nationalité pour les binationaux récidivistes et les condamnés pour terrorisme."<br />
                 </p>
             </div>
@@ -197,7 +197,7 @@ function ExplanationExampleThree() {
                 </p> <br/>
                 <p><strong>Argument final:</strong> <br />
                 - <strong>IA:</strong> "Les combattants de Daech ne devraient pas être autorisés à revenir en France." <br />
-                L'argument généré est valide. 
+                L'argument généré est valide. <br /> 
                 - <strong>Solution:</strong> "Les combattants de Daech ne devraient pas être autorisés à revenir en France."<br />
                 </p>
             </div>
