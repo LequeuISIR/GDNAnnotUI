@@ -52,8 +52,13 @@ function ExplanationExampleOne() {
                 <p><strong>Segmentation:</strong> <br />
                 - "Globalement l'impôt, quel qu'il soit doit être plus équitable" est un <span style={{color: type_colors["premise"]}}> <strong>Argument</strong> </span>. Cette phrase appuie la phrase suivante, qui est une solution. <br />
                 - "Il faut limiter les possibilités d'y échapper (évasion fiscale / niches fiscales / fraudes)." est une<span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span>: 
-                    il faut limiter les possibilités d'échapper aux impôts par soucis d'équitée. 
+                    il faut limiter les possibilités d'échapper aux impôts par soucis d'équité. 
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "L'impôt doit être plus équitable." <br />
+                Le système d'IA oublie complètement la solution <br />
+                - <strong>Solution:</strong> "Il faut limiter les possibilités d'évasion fiscale, de niches fiscales et de fraudes pour rendre l'impôt plus équitable."<br />
+                </p> 
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[1]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 2</h3> <br />
@@ -64,6 +69,11 @@ function ExplanationExampleOne() {
                 - "en limitant le nombre de prélèvement ou de taxes" est la<span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span>: une action concrête à appliquer. <br />
                 - "pour faciliter la compréhension de tous." est aussi un <span style={{color: type_colors["premise"]}}> <strong>Argument</strong> </span> pour appuyer le fait de limiter le nombre de taxes.
                 </p> <br />
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "En limitant le nombre de prélèvement ou de taxes, l'impôt doit être simplifié pour faciliter la compréhension de tous." <br />
+                L'argument généré est bon, mais sa syntaxe pourrait être améliorée <br />
+                - <strong>Solution:</strong> "L'impôt doit être simplifié En limitant le nombre de prélèvement ou de taxes pour faciliter la compréhension de tous."<br />
+                </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[2]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 3</h3> <br />
@@ -74,6 +84,11 @@ function ExplanationExampleOne() {
                 - "Les aides sociales doivent également être plus lisibles" est un <span style={{color: type_colors["premise"]}}> <strong>Argument</strong> </span>. Cette phrase appuie la phrase suivante, qui est une solution <br />
                 - "une aide familiale reprenant toutes celles existantes." est une <span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span> proposée pour avoir des aides sociales plus lisibles. notez qu'il n'y a pas besoin d'annoter le "exemple, ". <br />
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Les aides sociales doivent être regroupées et simplifiées pour faciliter leur compréhension et leur utilisation." <br />
+                L'argument initial ne mentionne pas explicitement "leur utilisation" et mentionne l'aide familiale.<br />
+                - <strong>Solution:</strong> "Les aides sociales, doivent être regroupées, par exemple en créant une aide familiale reprenant celles existante, pour faciliter leur compréhension."<br />
+                </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[3]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 4</h3> <br />
@@ -82,6 +97,11 @@ function ExplanationExampleOne() {
                 <p><strong>Segmentation:</strong> <br />
                 L'unité argumentative entière est une <span style={{color: type_colors["claim"]}}> <strong>Affirmation</strong> </span>. Elle ne propose pas de solution ou d'argument, mais seulement un ressenti du citoyen.
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Les dépenses publiques doivent être réparties de manière plus équitable afin de ne pas bénéficier uniquement à une petite partie de la population." <br />
+                Ceci est une bonne reformulation. Il n'y a pas besoin de changement. <br />
+                - <strong>Solution:</strong> "Les dépenses publiques doivent être réparties de manière plus équitable afin de ne pas bénéficier uniquement à une petite partie de la population."<br />
+                </p>
             </div>
         </div>
     )
@@ -100,6 +120,12 @@ function ExplanationExampleTwo() {
                 - "Il y a urgence ! Nous sommes responsables de ce que nous allons laissé aux générations futures." est une <span style={{color: type_colors["claim"]}}> <strong>Affirmation</strong> </span>. 
                 Elle ne propose aucune solution ou argument, mais exprime un sentiment fort (pour l'écologie). 
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Nous sommes responsables de notre impact sur les générations futures." <br />
+                Argument final ne contient pas le thème dont parle l'auteur: la transition écologique. <br />
+                - <strong>Solution:</strong> "Nous sommes responsables de la situation écologique actuelle et de ses conséquences sur les générations futures."<br />
+                </p>
+
             </div>
         </div>
     )
@@ -119,14 +145,22 @@ function ExplanationExampleThree() {
                 <p><strong>Segmentation:</strong> <br />
                 - "Faire baisser le prix des maisons de retraite" est un <span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span>.<br />
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Faire baisser le prix des maisons de retraite permettrait de les rendre plus accessibles aux personnes âgées." <br />
+                Le système d'IA ajoute de l'information non exprimée. <br />
+                - <strong>Solution:</strong> "Il faut faire baisser le prix des maison de retraite."<br />
+                </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[1]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 2</h3> <br />
                 <p><i>"autoriser l'aide à l'euthanasie active pour celui qui le décide pour lui même, dans certains cas"</i></p>
                 <br />
-                <p><strong>Segmentation:</strong> <br />
-                - "autoriser l'aide à l'euthanasie active pour celui qui le décide pour lui même, dans certains cas" est la<span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span>. <br />
-                </p> <br />
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Autoriser l'aide à l'euthanasie active pour les personnes qui en font la demande, dans certains cas, 
+                permettrait de respecter la volonté individuelle et d'offrir une solution encadrée à la fin de vie." <br />
+                Le système d'IA ajoute de l'information non exprimée. <br />
+                - <strong>Solution:</strong> "Autoriser, dans certains cas particulier et si le patient le décide, l'aide à l'euthanasie active."<br />
+                </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[2]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 3</h3> <br />
@@ -135,6 +169,11 @@ function ExplanationExampleThree() {
                 <p><strong>Segmentation:</strong> <br />
                 - "retour de la peine de mort pour les meurtres d'enfants et de mineurs" est une <span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span>. <br />
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Rétablir la peine de mort pour les meurtres d'enfants et de mineurs permettrait de répondre de manière plus sévère à ces crimes particulièrement graves." <br />
+                Le système d'IA ajoute de l'information non exprimée. <br />
+                - <strong>Solution:</strong> "Il faut rétablir la peine de mort pour les meurtres d'enfants et de mineurs."<br />
+                </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[3]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 4</h3> <br />
@@ -143,6 +182,11 @@ function ExplanationExampleThree() {
                 <p><strong>Segmentation:</strong> <br />
                 - "perte de nationalité pour les bi nationaux récidiviste et les condamnés pour terrorisme" est une <span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span>. <br />
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Retirer la nationalité pour les binationaux récidivistes et les condamnés pour terrorisme." <br />
+                L'argument généré est valide. 
+                - <strong>Solution:</strong> "Retirer la nationalité pour les binationaux récidivistes et les condamnés pour terrorisme."<br />
+                </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[4]}`, marginTop: "2rem", padding:"10px"}}>
                 <h3>Unité argumentative 5</h3> <br />
@@ -151,6 +195,11 @@ function ExplanationExampleThree() {
                 <p><strong>Segmentation:</strong> <br />
                 - "non retour en France des combattants de Daech" est une <span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span>. <br />
                 </p> <br/>
+                <p><strong>Argument final:</strong> <br />
+                - <strong>IA:</strong> "Les combattants de Daech ne devraient pas être autorisés à revenir en France." <br />
+                L'argument généré est valide. 
+                - <strong>Solution:</strong> "Les combattants de Daech ne devraient pas être autorisés à revenir en France."<br />
+                </p>
             </div>
         </div>
     )
@@ -225,6 +274,7 @@ export default function ExamplesPage() {
           padding: "0.5rem",
           borderRadius: "1rem",
           marginBottom: "1rem",
+          width: "80%"
         }}
       >
         <OpinionAnnotation opinion={opinion} />

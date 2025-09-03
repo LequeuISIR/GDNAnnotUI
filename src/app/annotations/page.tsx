@@ -32,11 +32,11 @@ export default function AnnotationsPage() {
   if (!token) {
 	return(
     <div>
-      Veuillez retourner sur la page de toturiel et entrez votre token d'identification
+      Veuillez retourner sur la page de tutoriel et entrez votre token d'identification
 
       <Link href="/welcome" style={{ color: "white", marginLeft: "1rem", textDecoration: "none", backgroundColor: "red"}}>
                 Retour au tutoriel
-        </Link>
+      </Link>
 
     </div>
 )

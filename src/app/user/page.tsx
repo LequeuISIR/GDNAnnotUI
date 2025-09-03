@@ -1,57 +1,3 @@
-// "use client"
-
-// import { useState, useEffect } from "react";
-// import api from "../api"
-// import { UserInformation } from "../types";
-
-
-
-// export default function UserPage() {
-//     const [userInfo, setUserInfo] = useState<UserInformation | null>(null);
-//     const [error, setError] = useState<string | null>(null);
-
-
-//     useEffect(() => {
-//     api
-//       .get("/user-info")
-//       .then((response) => {
-//         const data: UserInformation = response.data;
-//         setUserInfo(data);
-//       })
-//       .catch((err) => {
-//         console.error("Error fetching user info:", err);
-//         setError("Impossible de charger les informations utilisateur.");
-//       });
-//     }, []);
-
-//     if (error) {
-//         return <div>{error}</div>;
-//     }
-
-//         if (userInfo === null) {
-//         return (
-//         <div>
-//             <p>chargement des informations...</p>
-//         </div>
-//         );
-//     }
-
-//     return (
-//     <div>
-//       <p>Token: {userInfo.token}</p>
-//       <p>Annotation en cours: {userInfo.current_annotation}</p>
-//       <p>Annotations finies ({Object.keys(userInfo.done_annotations).length} au total):</p>
-//       <ul>
-//         {Object.entries(userInfo.done_annotations).map(([opinionId, opinionText]) => (
-//           <li key={opinionId}>
-//             <strong>{opinionId}</strong>: {opinionText}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -59,6 +5,7 @@ import api from "../api";
 import { UserInformation } from "../types";
 import { useAppContext } from "../AppContext";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 
 
@@ -68,8 +15,23 @@ export default function UserPage() {
   const [error, setError] = useState<string | null>(null);
 
   const {
-          opinionFromId
+          opinionFromId,
+          token
         } = useAppContext();
+      
+  if (!token) {
+	return(
+    <div>
+      Veuillez retourner sur la page de tutoriel et entrez votre token d'identification
+
+      <Link href="/welcome" style={{ color: "white", marginLeft: "1rem", textDecoration: "none", backgroundColor: "red"}}>
+                Retour au tutoriel
+      </Link>
+
+    </div>
+)
+  }
+
 
   useEffect(() => {
     api.get("/user-info")
