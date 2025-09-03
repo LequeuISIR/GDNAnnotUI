@@ -158,21 +158,21 @@ export default function Welcome() {
         <h2>🚀 Après la segmentation</h2>
           <ExplainCorrection />
           <br />
-        Voici des réponses possibles du système d'IA, et les corrections à apporter:
+        <strong>Voici des réponses possibles du système d'IA, et les corrections à apporter:</strong> <br />
         Thème <span style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[0]}` }}>transports publics</span> : <br />
         <p><strong>IA:</strong><i>"Il faut développer les transports publics, notamment avec des chemins de traverse et des tarifs gratuits pour les mineurs, 
-          étudiants, chômeurs et handicapés, afin de réduire les longs trajets que les élèves, comme mon fils, doivent effectuer pour accéder à l'enseignement." </i> </p><br />
-        <p>L'argument final ne devrait pas garder l'exemple très personnel "comme mon fils"</p> 
+          étudiants, chômeurs et handicapés, afin de réduire les longs trajets que les élèves, comme mon fils, doivent effectuer pour accéder à l'enseignement." </i> </p>
+        <p>L'argument final ne devrait pas garder l'exemple très personnel "comme mon fils".</p> 
         <p><strong>Correction:</strong><i>"Il faut développer les transports publics, notamment avec des chemins de traverse et des tarifs gratuits pour les mineurs, 
           étudiants, chômeurs et handicapés, afin de réduire les longs trajets que les élèves doivent effectuer pour accéder à l'enseignement." </i> </p>
         <br />
         Thème <span style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[1]}` }}>hôpitaux</span> : <br />
-        <p><strong>IA:</strong><i>""Il faut recruter du personnel dans les hôpitaux, car les personnels actuels sont tout aussi épuisés, afin que leur travail soit vraiment reconnu." </i> </p><br />
+        <p><strong>IA:</strong><i>""Il faut recruter du personnel dans les hôpitaux, car les personnels actuels sont tout aussi épuisés, afin que leur travail soit vraiment reconnu." </i> </p>
         <p>Le modèle garde "[ils] sont tout aussi épuisé" qui est syntaxiquement faux. </p> 
         <p><strong>Correction:</strong><i>""Il faut recruter du personnel dans les hôpitaux car les personnels actuels sont épuisés, afin que leur travail soit vraiment reconnu." </i> </p>
           <br />
         Thème <span style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[2]}` }}>rentabilité des services publics</span> : <br />
-        <p><strong>IA:</strong><i>""L'argument souhaité est : L'organisation de l'État et des services publics doit cesser de donner la priorité à la rentabilité." </i> </p><br />
+        <p><strong>IA:</strong><i>""L'argument souhaité est : L'organisation de l'État et des services publics doit cesser de donner la priorité à la rentabilité." </i> </p>
         <p>Il ne faut pas garder l'introduction "l'argument souhaité est". </p> 
         <p><strong>Correction:</strong><i>""L'organisation de l'État et des services publics doit cesser de donner la priorité à la rentabilité." </i> </p>
 

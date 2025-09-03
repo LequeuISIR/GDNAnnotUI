@@ -56,7 +56,7 @@ function ExplanationExampleOne() {
                 </p> <br/>
                 <p><strong>Argument final:</strong> <br />
                 - <strong>IA:</strong> "L'impôt doit être plus équitable." <br />
-                Le système d'IA oublie complètement la solution <br />
+                Le système d'IA oublie complètement la solution. <br />
                 - <strong>Solution:</strong> "Il faut limiter les possibilités d'évasion fiscale, de niches fiscales et de fraudes pour rendre l'impôt plus équitable."<br />
                 </p> 
             </div>
@@ -71,8 +71,8 @@ function ExplanationExampleOne() {
                 </p> <br />
                 <p><strong>Argument final:</strong> <br />
                 - <strong>IA:</strong> "En limitant le nombre de prélèvement ou de taxes, l'impôt doit être simplifié pour faciliter la compréhension de tous." <br />
-                L'argument généré est bon, mais sa syntaxe pourrait être améliorée <br />
-                - <strong>Solution:</strong> "L'impôt doit être simplifié En limitant le nombre de prélèvement ou de taxes pour faciliter la compréhension de tous."<br />
+                L'argument généré est bon, mais sa syntaxe pourrait être améliorée. <br />
+                - <strong>Solution:</strong> "L'impôt doit être simplifié en limitant le nombre de prélèvement ou de taxes pour faciliter la compréhension de tous."<br />
                 </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[2]}`, marginTop: "2rem", padding:"10px"}}>
@@ -81,13 +81,13 @@ function ExplanationExampleOne() {
                 <br />
                 <p><strong>Segmentation:</strong> <br />
                 Cette unité argumentative est plus difficile: ce que le citoyen considère comme un exemple est en fait la solution.<br /><br />
-                - "Les aides sociales doivent également être plus lisibles" est un <span style={{color: type_colors["premise"]}}> <strong>Argument</strong> </span>. Cette phrase appuie la phrase suivante, qui est une solution <br />
+                - "Les aides sociales doivent également être plus lisibles" est un <span style={{color: type_colors["premise"]}}> <strong>Argument</strong> </span>. Cette phrase appuie la phrase suivante, qui est une solution. <br />
                 - "une aide familiale reprenant toutes celles existantes." est une <span style={{color: type_colors["solution"]}}> <strong>Solution</strong> </span> proposée pour avoir des aides sociales plus lisibles. notez qu'il n'y a pas besoin d'annoter le "exemple, ". <br />
                 </p> <br/>
                 <p><strong>Argument final:</strong> <br />
                 - <strong>IA:</strong> "Les aides sociales doivent être regroupées et simplifiées pour faciliter leur compréhension et leur utilisation." <br />
                 L'argument initial ne mentionne pas explicitement "leur utilisation" et mentionne l'aide familiale.<br />
-                - <strong>Solution:</strong> "Les aides sociales, doivent être regroupées, par exemple en créant une aide familiale reprenant celles existante, pour faciliter leur compréhension."<br />
+                - <strong>Solution:</strong> "Les aides sociales doivent être regroupées, par exemple en créant une aide familiale reprenant celles existantes, pour faciliter leur compréhension."<br />
                 </p>
             </div>
             <div style={{ boxShadow: `0 0 0 2px ${Object.keys(colors)[3]}`, marginTop: "2rem", padding:"10px"}}>
@@ -267,7 +267,7 @@ export default function ExamplesPage() {
       <div style={{ marginBottom: "1rem", fontStyle: "italic", color: "grey" }}>
         {small_explanations[opinion.opinionId]}
       </div>
-
+      <div style={{display: "flex", justifyContent:"center", alignItems: "center"}}>
       <div
         style={{
           border: "2px solid grey",
@@ -287,7 +287,8 @@ export default function ExamplesPage() {
           <SummariesAnnotation opinion={opinion} handleNext={() => {}} />
         )}
       </div>
-       <div
+      </div>      
+ <div
         style={{
           border: "2px solid grey",
           padding: "1.5rem",

@@ -17,6 +17,7 @@ export function ExplainTask() {
             Toutes les unités argumentatives comprennent au moins l'un des trois rôles, mais peuvent ne pas contenir les trois. Plusieurs segments d'une même unité argumentative
             peuvent aussi avoir le même rôle (par exemples, plusieurs arguments).
             </p>
+<p>De plus, un même texte peut avoir un rôle différent en fonction du reste de son unité argumentative. Par exemple, une affirmation peut devenir un argument si elle est utilisée pour appuyer une solution.</p>
             <br />
             <p> Votre tâche consiste à <strong>identifier et annoter toutes les unités argumentatives présentes dans chaque opinions</strong>, et d'<strong>annoter leurs sous-segments de texte selon les trois types</strong> ci-dessus. </p> 
             <p>Ensuite, chaque unité argumentative sera réécrite par un système d'intelligence artificielle générative. <strong>Vous devez vérifier et modifier ces textes générés par le système d'IA</strong> pour qu'ils représentent
@@ -31,7 +32,7 @@ export function ExplainCorrection() {
     <div>
       <p>
       Après avoir segmenté le texte, cliquez sur <strong>"envoyer"</strong>: un système d'IA propose alors un argument clarifié pour chaque unité argumentative.
-      Modifiez-les si nécessaire pour qu’ils soient <strong>clairs et auto-suffisants</strong>, 
+      Modifiez le si nécessaire pour qu’ils soient <strong>clairs et auto-suffisants</strong>, 
           <strong> fidèles au texte</strong> (pas d’ajouts inventés) et <strong>Cohérents avec l’opinion complète et le thème du texte</strong>.
       <br />
       Concrètement, vous devez vérifier que l'opinion générée automatiquement représente parfaitement l'unité argumentative correspondante, 
